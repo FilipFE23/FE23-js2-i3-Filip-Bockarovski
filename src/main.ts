@@ -1,12 +1,25 @@
-import { fetchProducts } from "./modules/fetchAPI.ts";
+import { displayNoResult } from "./modules/dislpay.ts";
+import { fetchProducts, fetchSearchedProducts } from "./modules/fetchAPI.ts";
 
-fetchProducts()
+fetchProducts();
 
-type ProductCard = {
-  image: String,
-  title: String,
-  description: String,
-  rating: Number,
-  stock: Number,
-  category: String,
-}
+const form = document.querySelector('#form') as HTMLFormElement;
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const productContainer = document.querySelector('#product-container') as HTMLDivElement;
+  const searchInput = document.querySelector('#searched-product') as HTMLInputElement
+  const inputValue = searchInput.value
+  
+  productContainer.innerHTML = ''
+
+  if(inputValue === ''){
+    displayNoResult()
+  }
+  else(
+    fetchSearchedProducts(inputValue)
+  )
+
+  form.reset()
+})

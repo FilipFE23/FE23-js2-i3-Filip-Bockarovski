@@ -44,14 +44,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 10px;
-  padding: 10px 0px 10px 10px;
+  gap: 15px;
+  padding: 15px 0px 15px 15px;
   margin: 40px;
   width: 90%;
 }
 
 .box {
-  width: calc(25% - 10px);
+  width: calc(25% - 15px);
   height: 400px;
-  box-shadow: 0px 7px 20px grey;
+  box-shadow: 0px 4px 16px grey;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.image-style {
+  max-height: 100px;
 }
