@@ -1,5 +1,14 @@
 import { displayProducts } from "./dislpay";
 
+type Product= {
+  thumbnail: String,
+  title: String,
+  description: String,
+  rating: Number,
+  stock: Number,
+  category: String,
+}
+
 export async function fetchProducts(){
   const url = 'https://dummyjson.com/products';
 
@@ -7,28 +16,37 @@ export async function fetchProducts(){
   const products = await res.json();
   const productsArr = products.products;
 
-  // type Product= {
-  //   thumbnail: String,
-  //   title: String,
-  //   description: String,
-  //   rating: Number,
-  //   stock: Number,
-  //   category: String,
-  // }
+  const reorgProductArr: Product[] = productsArr.map((products: any) => ({
+    thumbnail: products.thumbnail,
+    title: products.title,
+    description: products.description,
+    rating: products.rating,
+    stock: products.stock,
+    category: products.category,
+  }));
 
-  displayProducts(productsArr);
+  displayProducts(reorgProductArr);
 
-  return productsArr as any;
+  return reorgProductArr as any;
 };
 
 export async function fetchSearchedProducts(search: String) {
   const url = `https://dummyjson.com/products/search?q=${search}`;
-  
+
   const res = await fetch(url);
   const products = await res.json();
   const productsArr = products.products;
-  
-  displayProducts(productsArr);
-  
-  return productsArr as any;
+
+  const reorgProductArr: Product[] = productsArr.map((products: any) => ({
+    thumbnail: products.thumbnail,
+    title: products.title,
+    description: products.description,
+    rating: products.rating,
+    stock: products.stock,
+    category: products.category,
+  }));
+
+  displayProducts(reorgProductArr);
+
+  return reorgProductArr as any;
 }

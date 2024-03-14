@@ -18,8 +18,10 @@ export function displayProducts(object: any){
       createDivEle.classList.add('box')
       createDivEle.classList.add('center-element')
       createImgEle.classList.add('image-style')
+      createInfoDivEle.classList.add('info-box-style')
+      createButtonEle.classList.add('button-style')
 
-      createImgEle.src = element.images[0];
+      createImgEle.src = element.thumbnail;
       createH1Ele.innerText = element.title;
       createDescriptPEle.innerText = element.description;
       createRatingPEle.innerText = `Rating: ${element.rating}`;
