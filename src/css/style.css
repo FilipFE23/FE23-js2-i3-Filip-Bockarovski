@@ -63,8 +63,9 @@
   max-width: 200px;
 }
 
-/* .info-box-style {
-} */
+.low-stock {
+  color: red;
+}
 
 .button-style {
   border-radius: 15px;

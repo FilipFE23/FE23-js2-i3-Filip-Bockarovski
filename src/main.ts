@@ -1,7 +1,6 @@
-import { displayNoResult } from "./modules/dislpay.ts";
-import { fetchProducts, fetchSearchedProducts } from "./modules/fetchAPI.ts";
+import { displayNoResult, displayProducts } from "./modules/dislpay.ts";
 
-fetchProducts();
+displayProducts();
 
 const form = document.querySelector('#form') as HTMLFormElement;
 
@@ -9,16 +8,16 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const productContainer = document.querySelector('#product-container') as HTMLDivElement;
-  const searchInput = document.querySelector('#searched-product') as HTMLInputElement
-  const inputValue = searchInput.value
+  const searchInput = document.querySelector('#searched-product') as HTMLInputElement;
+  const inputValue = searchInput.value;
   
   productContainer.innerHTML = ''
 
   if(inputValue === ''){
-    displayNoResult()
+    displayNoResult();
   }
   else(
-    fetchSearchedProducts(inputValue)
+    displayProducts(inputValue)
   )
 
   form.reset()
