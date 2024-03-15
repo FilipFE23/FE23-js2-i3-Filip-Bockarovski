@@ -1,4 +1,6 @@
-export function displayProducts(object: any){
+import { Product } from "./fetchAPI.ts";
+
+export function displayProducts(object: Product[]): void{
   if (object.length === 0){
     displayNoResult()
   }
@@ -18,7 +20,7 @@ export function displayProducts(object: any){
       createDivEle.classList.add('box')
       createDivEle.classList.add('center-element')
       createImgEle.classList.add('image-style')
-      createInfoDivEle.classList.add('info-box-style')
+      // createInfoDivEle.classList.add('info-box-style')
       createButtonEle.classList.add('button-style')
 
       createImgEle.src = element.thumbnail;
@@ -36,7 +38,7 @@ export function displayProducts(object: any){
   };
 };
 
-export function displayNoResult(){
+export function displayNoResult(): void{
   const productContainer = document.querySelector('#product-container') as HTMLDivElement;
     const createH1 = document.createElement('h1')
 

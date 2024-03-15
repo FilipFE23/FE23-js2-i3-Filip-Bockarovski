@@ -1,15 +1,15 @@
 import { displayProducts } from "./dislpay";
 
-type Product= {
-  thumbnail: String,
-  title: String,
-  description: String,
-  rating: Number,
-  stock: Number,
-  category: String,
+export type Product = {
+  thumbnail: string,
+  title: string,
+  description: string,
+  rating: number,
+  stock: number,
+  category: string,
 }
 
-export async function fetchProducts(){
+export async function fetchProducts(): Promise<Product[]>{
   const url = 'https://dummyjson.com/products';
 
   const res = await fetch(url);
@@ -27,10 +27,10 @@ export async function fetchProducts(){
 
   displayProducts(reorgProductArr);
 
-  return reorgProductArr as any;
+  return reorgProductArr;
 };
 
-export async function fetchSearchedProducts(search: String) {
+export async function fetchSearchedProducts(search: String): Promise<Product[]>{
   const url = `https://dummyjson.com/products/search?q=${search}`;
 
   const res = await fetch(url);
@@ -48,5 +48,5 @@ export async function fetchSearchedProducts(search: String) {
 
   displayProducts(reorgProductArr);
 
-  return reorgProductArr as any;
+  return reorgProductArr;
 }
