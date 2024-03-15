@@ -130,4 +130,4 @@ dist
 .pnp.*
 
 # homebrew
-.package-lock.json
+package-lock.json
